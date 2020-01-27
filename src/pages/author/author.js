@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./author.css"
 import AuthorForm from "./authorCreate/authorForm"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Author extends Component{
   constructor ( props ) {
@@ -37,7 +38,10 @@ class Author extends Component{
     let authors = this.state.author.map(data => {
       return(
         <div className="author" key={data.name} onClick={authorDetail} >
-          <h3>{data.name}</h3>
+          <Link to={'/author-detail/' + data.name}>
+            <h3>{data.name}</h3>
+          </Link>
+          
         </div>
       )
     })

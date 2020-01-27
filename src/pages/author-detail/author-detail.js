@@ -3,7 +3,10 @@ import "./author-detail.css"
 
 const AuthorDetail = () => {
   return (
-    <h1>AuthorDetail</h1>
+    <div>
+      <h1>AuthorDetail</h1>
+    </div>
+    
   )
 }
 
