@@ -14,15 +14,15 @@ class Author extends Component{
     let authors = this.state.author.map(data => {
       return(
         <div key={data}>
-          <h1>{data}</h1>
+          <h3>{data}</h3>
         </div>
       )
     })
     
     return(
       <div>
-        <button>Add a new author</button>
-        <h1>Author</h1>
+        <h1>Authors</h1>
+        <button onClick={() => {}}>Add a new author</button>
         {authors}
       </div>
     )
