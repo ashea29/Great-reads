@@ -7,7 +7,7 @@ class Author extends Component{
     super( props )
     this.state={
       author:["Harper Lee", "George R. R. Martin", "Ian Fleming", "Tana French"],
-      authorAction: "edit"
+      // authorAction: "edit"
     }
   }
 
@@ -15,7 +15,7 @@ class Author extends Component{
 
     let authors = this.state.author.map(data => {
       return(
-        <div key={data}>
+        <div className="authors"key={data} >
           <h3>{data}</h3>
         </div>
       )

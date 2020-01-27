@@ -12,6 +12,7 @@ const authorForm = (props) => {
         <div className="authorinputholder">
           <input type="text" required className="authorname" placeholder="Author's Name" />
         </div>
+        <button>Submit</button>
       </div>
     </div>
   )
