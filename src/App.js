@@ -27,6 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Author />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookClickHandle={(e) => this.bookClickHandle(e)} />} />
           <Route exact path="/bookdetail/:name" render={(props) => <BookDetail {...props} name={this.state.name} />} />
