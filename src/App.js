@@ -17,7 +17,7 @@ class App extends Component {
     this.state = {
       books: data,
       authors: [],
-      bookAction: "create",
+      // bookAction: "create",
       bookClicked: ""
     }
   }

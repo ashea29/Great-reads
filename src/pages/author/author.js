@@ -1,32 +1,52 @@
 import React, { Component } from "react"
 import "./author.css"
 import AuthorForm from "./authorCreate/authorForm"
+import axios from 'axios'
 
 class Author extends Component{
   constructor ( props ) {
     super( props )
     this.state={
-      author:["Harper Lee", "George R. R. Martin", "Ian Fleming", "Tana French"],
-      // authorAction: "edit"
+      author:[],
+      // authorAction: "create"
     }
   }
 
-  render(){
+  componentDidMount() {
+    this.getData()
+  }
 
+  getData () {
+      const url = "https://great-reads-seir1118.herokuapp.com/authors";
+      axios.get(url).then(res => {
+        console.log(res.data)
+        this.setState({
+          author: res.data
+        });
+      });
+    }
+
+  escHandle = () => {
+    this.setState({ bookAction: "" })
+  }
+
+  render(){
+  
     let authors = this.state.author.map(data => {
       return(
         <div className="authors"key={data} >
-          <h3>{data}</h3>
+          <h3>{data.name}</h3>
         </div>
       )
     })
     
     return(
       <div>
-        <h1>Authors</h1>
-        <AuthorForm authorAction={this.state.authorAction} />
+        <AuthorForm authorAction={this.state.authorAction} escHandle={this.escHandle} />
         <button>Add a new author</button>
-        {authors}
+        <div className="authors">
+          {authors}
+        </div>
       </div>
     )
   }
