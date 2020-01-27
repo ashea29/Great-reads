@@ -1,11 +1,13 @@
 import React, { Component } from "react"
 import "./author.css"
+import AuthorForm from "./authorCreate/authorForm"
 
 class Author extends Component{
   constructor ( props ) {
     super( props )
     this.state={
-      author:["Harper Lee", "George R. R. Martin", "Ian Fleming", "Tana French"]
+      author:["Harper Lee", "George R. R. Martin", "Ian Fleming", "Tana French"],
+      authorAction: "edit"
     }
   }
 
@@ -22,7 +24,8 @@ class Author extends Component{
     return(
       <div>
         <h1>Authors</h1>
-        <button onClick={() => {}}>Add a new author</button>
+        <AuthorForm authorAction={this.state.authorAction} />
+        <button>Add a new author</button>
         {authors}
       </div>
     )
