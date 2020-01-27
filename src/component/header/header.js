@@ -4,7 +4,7 @@ import "./header.css"
 
 const Header = () => {
   return (
-      <div>
+      <div className='header'>
         <Link to='/main' style={{textDecoration: 'none', color:'black'}}>
            <h1>Great Books</h1> 
         </Link>
@@ -13,7 +13,6 @@ const Header = () => {
         </Link>
         <h2>Create Books</h2>
       </div>
-    
   )
 }
 
