@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from 'react-router-dom'
 import "./header.css"
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='header'>
       <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
@@ -11,7 +11,7 @@ const Header = () => {
       <Link to='/author' style={{ textDecoration: 'none', color: 'black' }}>
         <h2>Authors</h2>
       </Link>
-      <h2>Create Books</h2>
+      <h2 onClick={() => props.bookCreateHandle()}>Create Books</h2>
     </div>
   )
 }

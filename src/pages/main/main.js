@@ -6,9 +6,14 @@ const Main = (props) => {
     <div className="bookdisplay">
       {props.books.map(eachBook =>
         <div key={eachBook.title} className="eachbookholder">
-          <div style={{ backgroundImage: `url(${eachBook.imageUrl})` }} className="eachbookimage" />
-          <h5 className="eachbooktitle">{eachBook.title}</h5>
-          <h5 className="eachbookauthor">{eachBook.author}</h5>
+          <section style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
+            <small className="bookdelete" >Delete</small>
+            <small className="bookedit" id={eachBook._id} onClick={(e) => props.bookEditHandle(e)}>Edit</small>
+          </section>
+          <section>
+            <p className="eachbooktitle">{eachBook.title}</p>
+            <p className="eachbookauthor">{eachBook.author.name}</p>
+          </section>
         </div>
       )}
 

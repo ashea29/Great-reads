@@ -6,6 +6,7 @@
   right: 20vw;
   background: white;
   border-radius: 10px;
+  z-index: 2;
 }
 .bookpopup h3{
   font-size: 4vmin;
@@ -20,6 +21,7 @@
   color: white;
   line-height: 5vmin;
   border-radius: 5px;
+  cursor: pointer;
 }
 .bookpopup .esc:hover{
   color: blue;
