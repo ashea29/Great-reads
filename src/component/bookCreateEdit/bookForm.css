@@ -21,6 +21,10 @@
   line-height: 5vmin;
   border-radius: 5px;
 }
+.bookpopup .esc:hover{
+  color: blue;
+  background: white;
+}
 .bookinputholder{
   position: fixed;
   top: 35vh;
@@ -65,4 +69,21 @@ height: 15vmin;
 border-radius: 2px;
 border: 1px solid grey;
 font-weight: 2vmin;
+z-index:5;
+}
+.bookpopup  .submitbutton{
+display: inline-block;
+position: absolute;
+bottom: 0;
+left: 15vw;
+width: 20vw;
+color: white;
+background: goldenrod;
+height: 5vh;
+border-radius: 10px;
+font-size: 3vmin;
+}
+.bookpopup  .submitbutton:hover{
+  background: white;
+  color: goldenrod;
 }

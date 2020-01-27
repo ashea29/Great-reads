@@ -1,0 +1,15 @@
+.bookdisplay{
+margin: 10vh 10vw;
+background: lightgrey;
+}
+.eachbookholder{
+width: 20vmin;
+height: 30vmin;
+}
+.eachbookimage{
+  width: 20vmin;
+  height: 20vmin;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

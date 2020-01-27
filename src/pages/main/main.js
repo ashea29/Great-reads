@@ -1,8 +1,18 @@
 import React from "react"
+import "./main.css"
 
-const Main = () => {
+const Main = (props) => {
   return (
-    <h1>Main</h1>
+    <div className="bookdisplay">
+      {props.books.map(eachBook =>
+        <div key={eachBook.title} className="eachbookholder">
+          <div style={{ backgroundImage: `url(${eachBook.imageUrl})` }} className="eachbookimage" />
+          <h5 className="eachbooktitle">{eachBook.title}</h5>
+          <h5 className="eachbookauthor">{eachBook.author}</h5>
+        </div>
+      )}
+
+    </div>
   )
 }
 
