@@ -1,5 +1,9 @@
-.App {
-  text-align: center;
+/* Share props */
+.block{
+  display: block;
+}
+.none{
+  display:none;
 }
 .overlay{
   position: fixed;
@@ -9,4 +13,8 @@
   right:0;
   background: black;
   opacity: 0.8;
+}
+/* App.js */
+.App {
+  text-align: center;
 }

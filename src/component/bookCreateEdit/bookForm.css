@@ -1,0 +1,68 @@
+.bookpopup{
+  position: fixed;
+  top: 20vh;
+  bottom: 20vh;
+  left: 20vw;
+  right: 20vw;
+  background: white;
+  border-radius: 10px;
+}
+.bookpopup h3{
+  font-size: 4vmin;
+}
+.bookpopup .esc{
+  position: fixed;
+  top: 19.99vh;
+  right: 19.99vw;
+  width: 5vmin;
+  height: 5vmin;
+  background: royalblue;
+  color: white;
+  line-height: 5vmin;
+  border-radius: 5px;
+}
+.bookinputholder{
+  position: fixed;
+  top: 35vh;
+  bottom: 25vh;
+  left: 25vw;
+  right: 25vw;
+}
+.bookpopup input{
+  border: 1px solid grey;
+  height: 4vmin;
+  font-size: 2vmin;
+  display: inline-block;
+  position: absolute;
+  border-radius: 2px;
+}
+.bookpopup input::placeholder{
+  color: grey;
+  padding: 0 2vmin;
+}
+.bookpopup .bookname, .bookpopup .bookauthor{
+  width: 45%;
+}
+.bookpopup .bookname{
+  left:0;
+}
+.bookpopup .bookauthor{
+  right:0;
+}
+.bookpopup .bookurl{
+  left:0;
+  width: 99.2%;
+  top: 8vmin;
+  font-size: 1.7vmin;
+}
+.bookpopup .bookdetail{
+display: inline-block;
+position: absolute;
+top: 16vmin;
+left:0;
+width: 98.6%;
+height: 15vmin;
+border-radius: 2px;
+border: 1px solid grey;
+font-weight: 2vmin;
+}

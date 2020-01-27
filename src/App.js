@@ -7,7 +7,7 @@ import BookDetail from "./pages/book-detail/book-detail"
 
 import './App.css';
 import data from "./seedData.json"
-import BookForm from "./component/bookCreateEdit/bookCreateEdit"
+import BookForm from "./component/bookCreateEdit/bookForm"
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       books: data,
       authors: [],
-      createBook: false,
+      bookAction: "edit",
       bookClicked: ""
     }
   }
@@ -26,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <BookForm bookAction={this.state.bookAction} />
         <Header />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookClickHandle={(e) => this.bookClickHandle(e)} />} />
