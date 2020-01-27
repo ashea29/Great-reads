@@ -8,7 +8,7 @@ class Author extends Component{
     super( props )
     this.state={
       author:[],
-      // authorAction: "create"
+      authorAction: ""
     }
   }
 
@@ -19,7 +19,6 @@ class Author extends Component{
   getData () {
       const url = "https://great-reads-seir1118.herokuapp.com/authors";
       axios.get(url).then(res => {
-        console.log(res.data)
         this.setState({
           author: res.data
         });
@@ -31,22 +30,33 @@ class Author extends Component{
   }
 
   render(){
-  
+
+    let authorDetail =() => {
+      console.log('authorDetail')
+    }
     let authors = this.state.author.map(data => {
       return(
-        <div className="authors"key={data} >
+        <div className="author" key={data.name} onClick={authorDetail} >
           <h3>{data.name}</h3>
         </div>
       )
     })
+
+    let addAuthor = ()=>{
+      console.log("addAuthor")
+      this.setState({
+        
+      })
+    }
     
     return(
       <div>
-        <AuthorForm authorAction={this.state.authorAction} escHandle={this.escHandle} />
-        <button>Add a new author</button>
+        <button onClick={addAuthor}>Add a new author</button>
+        <AuthorForm authorAction={this.state.authorAction} escHandle={this.escHandle}/>
         <div className="authors">
           {authors}
         </div>
+        
       </div>
     )
   }
