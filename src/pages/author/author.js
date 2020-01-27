@@ -9,25 +9,21 @@ class Author extends Component{
     }
   }
 
-  renderAuthors = () => {
-    let authors = this.state.author
-    if (Object.keys(authors).length && authors.length){
-      return(
-        authors.map( author => {
-          return(
-            <div>
-              <h1>{author.author}</h1>
-            </div>
-          )
-        })
-      )
-    }
-  }
   render(){
+
+    let authors = this.state.author.map(data => {
+      return(
+        <div key={data}>
+          <h3>{data}</h3>
+        </div>
+      )
+    })
+    
     return(
       <div>
-        <h1>Author</h1>
-        {this.renderAuthors}
+        <h1>Authors</h1>
+        <button onClick={() => {}}>Add a new author</button>
+        {authors}
       </div>
     )
   }
