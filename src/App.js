@@ -37,7 +37,6 @@ class App extends Component {
       .then(res => res.json())
       .then(res => this.setState({ books: res }))
   }
-
   bookCreateHandle = () => {
     this.setState({ bookAction: "create" })
   }
@@ -99,7 +98,7 @@ class App extends Component {
               title: this.state.bookTitle,
               description: this.state.bookDetail,
               coverImgURL: this.state.bookUrl,
-              author: fetch
+              author: this.state.bookAuthor
             })
           }
         ).then((res) => res.json())

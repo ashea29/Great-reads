@@ -8,7 +8,7 @@ class Author extends Component {
     super(props)
     this.state = {
       authors: [],
-      authorAction: "create",
+      authorAction: "",
       authorName: ""
     }
   }
