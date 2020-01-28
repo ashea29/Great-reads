@@ -79,7 +79,7 @@ class App extends Component {
   }
   bookSubmitHandle = (e) => {
     e.preventDefault()
-    if (this.state.bookUrl.includes("https://")) {
+    if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
       const url = "https://great-reads-seir1118.herokuapp.com/"
       if (this.state.bookAction === "edit") {
         console.log(this.state.bookAuthor, this.state.bookTitle)

@@ -25,8 +25,9 @@ input:focus, textarea:focus{
 .urlreminder{
   z-index: 10;
   position: fixed;
-  bottom: 19vh;
+  bottom: 10vh;
   left: 30%;
   width: 40%;
-  color: grey;
+  color: white;
+  font-size: 3vmin;
 }
