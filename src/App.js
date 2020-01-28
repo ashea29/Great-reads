@@ -14,8 +14,6 @@ class App extends Component {
     super(props)
     this.state = {
       books: [],
-      authors: [],
-      authorAction: "",
       bookAction: "",
       bookClicked: "",
 
