@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./author-detail.css"
 
+
 class AuthorDetail extends Component{
 
   constructor(props) {
@@ -35,6 +36,7 @@ class AuthorDetail extends Component{
             
           </div>
        )}
+
       </div>
     )
     }else{

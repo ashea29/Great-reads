@@ -20,7 +20,7 @@ class App extends Component {
       bookAuthor: "",
       bookTitle: "",
       bookUrl: "",
-      bookDetail: ""
+      bookDetail: "",
     }
   }
   componentDidMount() {
@@ -38,28 +38,32 @@ class App extends Component {
   bookCreateHandle = () => {
     this.setState({ bookAction: "create" })
   }
-  authorCreateHandle = () => {
-    this.setState({ authorAction: "create" })
-  }
   bookIdHandle = (e) => {
     const editedBook = e.target.attributes.getNamedItem('id').value
     this.setState({ bookClicked: editedBook })
-    if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }) }
-    else if (e.target.innerText.toLowerCase() === "delete") { this.deleteHandle(editedBook) }
+    if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }); console.log("edite") }
+    else if (e.target.innerText.toLowerCase() === "delete") {
+      const url = `https://great-reads-seir1118.herokuapp.com/books/${editedBook}`
+      console.log("delete", url)
+      fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(() => console.log('sdsd'))
+      // .then(() => this.getBooks())
+    }
   }
   escHandle = () => {
-    this.setState({ bookAction: "" })
+    this.setState({ bookAuthor: "" })
+    this.setState({ bookTitle: "" })
+    this.setState({ bookDetail: "" })
     this.setState({ bookUrl: "" })
+    this.setState({ bookAction: "" })
   }
-  deleteHandle = (editedBook) => {
-    const id = this.state.bookClicked
-    const url = "https://great-reads-seir1118.herokuapp.com/books/"
-    console.log(url)
-    fetch(`${url}${id}`, {
-      method: 'DELETE'
-    })
-      .then(res => res.json())
-  }
+
   editBooks = () => {
     const url = "https://great-reads-seir1118.herokuapp.com/books/"
     const id = this.state.bookClicked
@@ -75,17 +79,13 @@ class App extends Component {
           coverImgURL: this.state.bookUrl
         })
       }
-    ).then(res => res.json())
+    ).then(res => res.json()).then(() => this.getBooks())
   }
   // backup
   bookSubmitHandle = (e) => {
-    e.preventDefault()
     if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
-      const url = "https://great-reads-seir1118.herokuapp.com/books"
-      // const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookAuthor}`
-      console.log(url)
+      const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookAuthor}`
       if (this.state.bookAction === "edit") {
-        console.log(this.state.bookAuthor, this.state.bookTitle)
         this.editBooks()
         this.setState({ bookClicked: "" })
       } else if (this.state.bookAction === "create") {
@@ -99,10 +99,9 @@ class App extends Component {
               title: this.state.bookTitle,
               description: this.state.bookDetail,
               coverImgURL: this.state.bookUrl,
-              // author: this.state.bookAuthor
             })
           }
-        ).then((res) => res.json())
+        ).then((res) => res.json()).then(() => this.getBooks())
       }
       this.setState({ bookAuthor: "" })
       this.setState({ bookTitle: "" })
@@ -112,9 +111,9 @@ class App extends Component {
     } else {
       this.setState({ bookUrl: "omg!!!Don't" })
     }
+
   }
   inputHandle = (e) => {
-    e.preventDefault()
     const result = e.target.value;
     const where = e.target.attributes.getNamedItem('name').value
     if (where === "author") { this.setState({ bookAuthor: result }) }
@@ -127,10 +126,10 @@ class App extends Component {
     return (
       <div className="App">
         <p className="urlreminder">{urlreminder}</p>
-        <BookForm bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
+        <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
         <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>
-          <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
+          <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} delete />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route exact path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />
