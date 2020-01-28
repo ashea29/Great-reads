@@ -1,14 +1,17 @@
-import React from "react"
+import React, { Component } from "react"
 import "./author-detail.css"
 
-const AuthorDetail = () => {
-  console.log('books')
-  return (
-    <div>
-      <h1>AuthorDetail</h1>
-    </div>
-    
-  )
+class AuthorDetail extends Component{
+  
+  render(){
+
+    // console.log(this.props.author)
+    return(
+      <div>
+        <h1>detail</h1>
+      </div>
+    )
+  }
 }
 
 export default AuthorDetail
