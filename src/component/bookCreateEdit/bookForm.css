@@ -84,6 +84,7 @@ background: goldenrod;
 height: 5vh;
 border-radius: 10px;
 font-size: 3vmin;
+outline: none;
 }
 .bookpopup  .submitbutton:hover{
   background: white;

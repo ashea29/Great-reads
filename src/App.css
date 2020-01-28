@@ -22,3 +22,12 @@
 input:focus, textarea:focus{
   outline:none;
 }
+.urlreminder{
+  z-index: 10;
+  position: fixed;
+  bottom: 10vh;
+  left: 30%;
+  width: 40%;
+  color: white;
+  font-size: 3vmin;
+}
