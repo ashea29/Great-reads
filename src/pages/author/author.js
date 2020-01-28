@@ -8,7 +8,7 @@ class Author extends Component {
     super(props)
     this.state = {
       authors: [],
-      authorAction: "create",
+      authorAction: "",
       authorName: ""
     }
   }
@@ -16,9 +16,7 @@ class Author extends Component {
   componentDidMount() {
     this.getAuthor()
   }
-  componentDidUpdate() {
-    this.getAuthor()
-  }
+
   getAuthor() {
     fetch('https://great-reads-seir1118.herokuapp.com/authors')
       .then(res => res.json())
@@ -48,6 +46,11 @@ class Author extends Component {
       })
     }).then((res) => res.json())
   }
+
+ 
+  componentDidUpdate() {
+    this.getAuthor()
+  }
   render() {
     return (
       <div>
@@ -59,7 +62,7 @@ class Author extends Component {
         <button onClick={this.createAuthorHandle}>Create a new Author</button>
         {this.state.authors.map(data =>
           <div key={data._id}>
-            <Link to={`/author-detail/${data._id}`}><h3>{data.name}</h3></Link>
+            <Link to={`/author/${data._id}`} author={data.name}><h3>{data.name}</h3></Link>
           </div>
         )}
       </div>
