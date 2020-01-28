@@ -13,6 +13,7 @@ const Main = (props) => {
           <section>
             <p className="eachbooktitle">{eachBook.title}</p>
             <p className="eachbookauthor">{eachBook.author.name}</p>
+
           </section>
         </div>
       )}
