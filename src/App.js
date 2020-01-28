@@ -78,11 +78,12 @@ class App extends Component {
       }
     ).then(res => res.json())
   }
+  // backup
   bookSubmitHandle = (e) => {
     e.preventDefault()
     if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
-      const url = "https://great-reads-seir1118.herokuapp.com/"
-      // const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookauthor}`
+      // const url = "https://great-reads-seir1118.herokuapp.com/"
+      const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookauthor}`
       if (this.state.bookAction === "edit") {
         console.log(this.state.bookAuthor, this.state.bookTitle)
         this.editBooks()
