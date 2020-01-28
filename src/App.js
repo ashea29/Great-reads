@@ -21,16 +21,14 @@ class App extends Component {
       bookTitle: "",
       bookUrl: "",
       bookDetail: "",
-      submit: false
-
     }
   }
   componentDidMount() {
     this.getBooks()
   }
-  // componentDidUpdate() {
-  // this.getBooks()
-  // }
+  componentDidUpdate() {
+    this.getBooks()
+  }
   getBooks() {
     fetch("https://great-reads-seir1118.herokuapp.com/")
       .then(res => res.json())
@@ -43,8 +41,20 @@ class App extends Component {
   bookIdHandle = (e) => {
     const editedBook = e.target.attributes.getNamedItem('id').value
     this.setState({ bookClicked: editedBook })
-    if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }) }
-    else if (e.target.innerText.toLowerCase() === "delete") { this.deleteHandle(editedBook) }
+    if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }); console.log("edite") }
+    else if (e.target.innerText.toLowerCase() === "delete") {
+      const url = `https://great-reads-seir1118.herokuapp.com/books/${editedBook}`
+      console.log("delete", url)
+      fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(() => console.log('sdsd'))
+      // .then(() => this.getBooks())
+    }
   }
   escHandle = () => {
     this.setState({ bookAuthor: "" })
@@ -53,14 +63,7 @@ class App extends Component {
     this.setState({ bookUrl: "" })
     this.setState({ bookAction: "" })
   }
-  deleteHandle = () => {
-    const id = this.state.bookClicked
-    const url = "https://great-reads-seir1118.herokuapp.com/books/"
-    fetch(`${url}${id}`, {
-      method: 'DELETE'
-    })
-      .then(res => res.json())
-  }
+
   editBooks = () => {
     const url = "https://great-reads-seir1118.herokuapp.com/books/"
     const id = this.state.bookClicked
@@ -76,7 +79,7 @@ class App extends Component {
           coverImgURL: this.state.bookUrl
         })
       }
-    ).then(res => res.json())
+    ).then(res => res.json()).then(() => this.getBooks())
   }
   // backup
   bookSubmitHandle = (e) => {
@@ -98,7 +101,7 @@ class App extends Component {
               coverImgURL: this.state.bookUrl,
             })
           }
-        ).then((res) => res.json())
+        ).then((res) => res.json()).then(() => this.getBooks())
       }
       this.setState({ bookAuthor: "" })
       this.setState({ bookTitle: "" })
@@ -126,7 +129,7 @@ class App extends Component {
         <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
         <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>
-          <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
+          <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} delete />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />

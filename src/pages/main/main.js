@@ -15,7 +15,7 @@ const Main = (props) => {
           </section>
           <section>
             <p className="eachbooktitle">{eachBook.title}</p>
-            <p className="eachbookauthor">{eachBook.author.name}</p>
+            {/* <p className="eachbookauthor">{eachBook.author.name}</p> */}
 
           </section>
         </div>

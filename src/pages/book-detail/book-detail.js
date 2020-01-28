@@ -18,7 +18,7 @@ class BookDetail extends Component {
         <article>
           <section className="bookdetail">
             <h2>{this.state.book.title}</h2>
-            <h3>{this.state.book.author.name}</h3>
+            {/* <h3>{this.state.book.author.name}</h3> */}
           </section>
 
           <section className="bookdetailimageholder">
