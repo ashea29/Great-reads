@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       books: [],
       authors: [],
+      authorAction: "",
       bookAction: "",
       bookClicked: "",
 
@@ -31,6 +32,7 @@ class App extends Component {
   }
   componentDidUpdate() {
     this.getBooks()
+    this.getAuthor()
   }
   getBooks() {
     const url = "https://great-reads-seir1118.herokuapp.com/"
@@ -42,6 +44,9 @@ class App extends Component {
   }
   bookCreateHandle = () => {
     this.setState({ bookAction: "create" })
+  }
+  authorCreateHandle = () => {
+    this.setState({ authorAction: "create" })
   }
   bookIdHandle = (e) => {
     const editedBook = e.target.attributes.getNamedItem('id').value
@@ -127,9 +132,9 @@ class App extends Component {
         <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
+          <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
+          <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle}/>} />
           <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />
-          <Route exact path="/author" render={(props) => <Authors {...props} />} />
-          <Route exact path="/author/:id" render={(props) => <DetailAuthor {...props} />} />
         </Switch>
       </div>
     );
