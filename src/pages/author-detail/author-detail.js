@@ -5,7 +5,7 @@ class AuthorDetail extends Component{
   
   render(){
 
-    // console.log(this.props.author)
+    
     return(
       <div>
         <h1>detail</h1>

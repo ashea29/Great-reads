@@ -132,7 +132,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
-          <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
+          <Route exact path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />
         </Switch>
       </div>

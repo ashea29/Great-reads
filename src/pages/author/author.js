@@ -62,7 +62,7 @@ class Author extends Component {
         <button onClick={this.createAuthorHandle}>Create a new Author</button>
         {this.state.authors.map(data =>
           <div key={data._id}>
-            <Link to={`/author/${data._id}`} author={data.name}><h3>{data.name}</h3></Link>
+            <Link to={`/author/${data.name}`} author={data.name}><h3>{data.name}</h3></Link>
           </div>
         )}
       </div>
