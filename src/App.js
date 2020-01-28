@@ -51,6 +51,7 @@ class App extends Component {
   }
   escHandle = () => {
     this.setState({ bookAction: "" })
+    this.setState({ bookUrl: "" })
   }
   deleteHandle = (editedBook) => {
     const url = "https://great-reads-seir1118.herokuapp.com/books/"
@@ -78,31 +79,35 @@ class App extends Component {
   }
   bookSubmitHandle = (e) => {
     e.preventDefault()
-    const url = "https://great-reads-seir1118.herokuapp.com/"
-    if (this.state.bookAction === "edit") {
-      console.log(this.state.bookAuthor, this.state.bookTitle)
-      this.editBooks()
-      this.setState({ bookClicked: "" })
-    } else if (this.state.bookAction === "create") {
-      fetch(url,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            title: this.state.bookTitle,
-            description: this.state.bookDetail,
-            coverImgURL: this.state.bookUrl
-          })
-        }
-      ).then((res) => res.json()).then((res) => console.log("edit success", res))
+    if (this.state.bookUrl.includes("https://")) {
+      const url = "https://great-reads-seir1118.herokuapp.com/"
+      if (this.state.bookAction === "edit") {
+        console.log(this.state.bookAuthor, this.state.bookTitle)
+        this.editBooks()
+        this.setState({ bookClicked: "" })
+      } else if (this.state.bookAction === "create") {
+        fetch(url,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              title: this.state.bookTitle,
+              description: this.state.bookDetail,
+              coverImgURL: this.state.bookUrl
+            })
+          }
+        ).then((res) => res.json()).then((res) => console.log("edit success", res))
+      }
+      this.setState({ bookAuthor: "" })
+      this.setState({ bookTitle: "" })
+      this.setState({ bookDetail: "" })
+      this.setState({ bookUrl: "" })
+      this.setState({ bookAction: "" })
+    } else {
+      this.setState({ bookUrl: "omg!!!Don't" })
     }
-    this.setState({ bookAuthor: "" })
-    this.setState({ bookTitle: "" })
-    this.setState({ bookDetail: "" })
-    this.setState({ bookUrl: "" })
-    this.setState({ bookAction: "" })
   }
   inputHandle = (e) => {
     e.preventDefault()
@@ -114,8 +119,10 @@ class App extends Component {
     else if (where === "url") { this.setState({ bookUrl: result }) }
   }
   render() {
+    const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
     return (
       <div className="App">
+        <p className="urlreminder">{urlreminder}</p>
         <BookForm bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
         <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>
