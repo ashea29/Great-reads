@@ -26,9 +26,7 @@ class App extends Component {
   componentDidMount() {
     this.getBooks()
   }
-  componentDidUpdate() {
-    this.getBooks()
-  }
+
   getBooks() {
     fetch("https://great-reads-seir1118.herokuapp.com/")
       .then(res => res.json())
@@ -39,6 +37,7 @@ class App extends Component {
     this.setState({ bookAction: "create" })
   }
   bookIdHandle = (e) => {
+    e.preventDefault()
     const editedBook = e.target.attributes.getNamedItem('id').value
     this.setState({ bookClicked: editedBook })
     if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }); console.log("edite") }
@@ -53,7 +52,7 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(() => console.log('sdsd'))
-        // .then(() => this.getBooks())
+        .then(() => this.getBooks())
     }
   }
   escHandle = () => {
