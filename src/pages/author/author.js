@@ -9,28 +9,15 @@ class Author extends Component{
     super( props )
     this.state={
       author:[],
-      authorAction: ""
+      authorAction: "",
     }
   }
-
-  // componentDidMount() {
-  //   this.getData()
-  // }
-
-  // getData () {
-  //     const url = "https://great-reads-seir1118.herokuapp.com/authors";
-  //     axios.get(url).then(res => {
-  //       this.setState({
-  //         author: res.data
-  //       });
-  //     });
-  //   }
-
+  
   escHandle = () => {
     this.setState({ bookAction: "" })
   }
 
-  render(){
+  render(props){
 
     let authorDetail =() => {
       console.log('authorDetail')
@@ -48,17 +35,17 @@ class Author extends Component{
       )
     })
 
-    let addAuthor = ()=>{
-      console.log("addAuthor")
-      this.setState({
+    // let addAuthor = ()=>{
+    //   console.log("addAuthor")
+    //   this.setState({
         
-      })
-    }
+    //   })
+    // }
     
     return(
       <div>
-        <button onClick={addAuthor}>Add a new author</button>
-        <AuthorForm authorAction={this.state.authorAction} escHandle={this.escHandle}/>
+         <h2 onClick={() => props.authorCreateHandle()}>Add A New Author</h2>
+        {/* <AuthorForm authorAction={this.state.authorAction} escHandle={this.escHandle}/> */}
         <div className="authors">
           {authors}
         </div>
