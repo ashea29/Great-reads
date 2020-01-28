@@ -1,4 +1,4 @@
-authors{
+.authors{
     display: grid;
 }
 .authors{
@@ -8,6 +8,7 @@ authors{
     border: .05em black solid;
 
 }
+
 .author:hover{
     color: green;
 }

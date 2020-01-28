@@ -8,7 +8,7 @@ import Header from "./component/header/header"
 import BookDetail from "./pages/book-detail/book-detail"
 import BookForm from "./component/bookCreateEdit/bookForm"
 import Authors from "./pages/author/author"
-import DetailAuthor from "./pages/author-detail/author-detail"
+import AuthorDetail from "./pages/author-detail/author-detail"
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class App extends Component {
       bookTitle: "",
       bookUrl: "",
       bookDetail: ""
-
     }
   }
   componentDidMount() {
@@ -32,16 +31,13 @@ class App extends Component {
   }
   componentDidUpdate() {
     this.getBooks()
-    this.getAuthor()
   }
   getBooks() {
-    const url = "https://great-reads-seir1118.herokuapp.com/"
-    axios.get(url).then(res => {
-      this.setState({
-        books: res.data
-      });
-    });
+    fetch("https://great-reads-seir1118.herokuapp.com/")
+      .then(res => res.json())
+      .then(res => this.setState({ books: res }))
   }
+
   bookCreateHandle = () => {
     this.setState({ bookAction: "create" })
   }
@@ -86,6 +82,7 @@ class App extends Component {
     e.preventDefault()
     if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
       const url = "https://great-reads-seir1118.herokuapp.com/"
+      // const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookauthor}`
       if (this.state.bookAction === "edit") {
         console.log(this.state.bookAuthor, this.state.bookTitle)
         this.editBooks()
@@ -100,7 +97,8 @@ class App extends Component {
             body: JSON.stringify({
               title: this.state.bookTitle,
               description: this.state.bookDetail,
-              coverImgURL: this.state.bookUrl
+              coverImgURL: this.state.bookUrl,
+              author: fetch
             })
           }
         ).then((res) => res.json())
@@ -133,7 +131,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
-          <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle}/>} />
+          <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />
         </Switch>
       </div>
