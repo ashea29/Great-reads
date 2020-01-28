@@ -15,6 +15,7 @@ const Main = (props) => {
           </section>
           <section>
             <p className="eachbooktitle">{eachBook.title}</p>
+            {/* {console.log(eachBook.author)} */}
             <p className="eachbookauthor">{eachBook.author.name}</p>
 
           </section>

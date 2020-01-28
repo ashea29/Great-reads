@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import "./author-detail.css"
 
-class AuthorDetail extends Component{
-  
-  render(){
+class AuthorDetail extends Component {
 
-    // console.log(this.props.author)
-    return(
+  render() {
+
+    // console.log(this.props.match)
+    return (
       <div>
         <h1>detail</h1>
       </div>
