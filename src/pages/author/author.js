@@ -9,7 +9,9 @@ class Author extends Component {
     this.state = {
       authors: [],
       authorAction: "",
-      authorName: ""
+      authorName: "",
+
+      newAuthorAdded: false
     }
   }
 
@@ -52,6 +54,7 @@ class Author extends Component {
     this.getAuthor()
   }
   render() {
+    
     return (
       <div>
 
@@ -61,8 +64,10 @@ class Author extends Component {
         />
         <button onClick={this.createAuthorHandle}>Create a new Author</button>
         {this.state.authors.map(data =>
-          <div key={data._id}>
-            <Link to={`/author/${data._id}`} author={data.name}><h3>{data.name}</h3></Link>
+          <div key={data._id} className='author'>
+            <Link to={`/author/${data.name}`} style={{textDecoration: 'none', color: 'black'}}>
+              <h3 className='name'>{data.name}</h3>
+            </Link>
           </div>
         )}
       </div>
