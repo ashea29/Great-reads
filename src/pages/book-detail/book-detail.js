@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Co } from "react"
 
 const BookDetail = () => {
   return (
