@@ -51,12 +51,9 @@ class App extends Component {
         },
       })
         .then(res => res.json())
-        .then(() => console.log('sdsd'))
-<<<<<<< HEAD
-        // .then(() => this.getBooks())
-=======
         .then(() => this.getBooks())
->>>>>>> 5ca930bad3040f0dca4f86e9b922defae012a42f
+
+
     }
   }
   escHandle = () => {
