@@ -5,11 +5,10 @@ import './App.css';
 
 import Main from "./pages/main/main"
 import Header from "./component/header/header"
-import Author from "./pages/author/author"
 import BookDetail from "./pages/book-detail/book-detail"
 import BookForm from "./component/bookCreateEdit/bookForm"
 import Authors from "./pages/author/author"
-import DetailAuthor from "./pages/author-detail/author-detail"
+import AuthorDetail from "./pages/author-detail/author-detail"
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +22,18 @@ class App extends Component {
   }
   componentDidMount() {
     this.getBooks()
+    this.getAuthor()
+  }
+
+  getAuthor () {
+    const url = "https://great-reads-seir1118.herokuapp.com/authors";
+    axios.get(url).then(res => {
+      this.setState({
+        authors: res.data,
+        authorsBooks: res.data
+
+      });
+    });
   }
 
   getBooks() {
@@ -53,8 +64,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookEditHandle={(e) => this.bookEditHandle(e)} />} />
           <Route exact path="/book/:name" render={(props) => <BookDetail {...props} name={this.state.name} />} />
-          <Route exact path="/author" render={(props) => <Authors {...props} />} />
-          <Route exact path="/author/:id" render={(props) => <DetailAuthor {...props} />} />
+          <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
+          <Route exact path="/author/:id" render={(props) => <AuthorDetail {...props} author={this.state.authors} />} />
         </Switch>
       </div>
     );
