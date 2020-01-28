@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./author.css"
 import AuthorForm from "./authorCreate/authorForm"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Author extends Component{
   constructor ( props ) {
@@ -12,18 +13,18 @@ class Author extends Component{
     }
   }
 
-  componentDidMount() {
-    this.getData()
-  }
+  // componentDidMount() {
+  //   this.getData()
+  // }
 
-  getData () {
-      const url = "https://great-reads-seir1118.herokuapp.com/authors";
-      axios.get(url).then(res => {
-        this.setState({
-          author: res.data
-        });
-      });
-    }
+  // getData () {
+  //     const url = "https://great-reads-seir1118.herokuapp.com/authors";
+  //     axios.get(url).then(res => {
+  //       this.setState({
+  //         author: res.data
+  //       });
+  //     });
+  //   }
 
   escHandle = () => {
     this.setState({ bookAction: "" })
@@ -34,11 +35,16 @@ class Author extends Component{
     let authorDetail =() => {
       console.log('authorDetail')
     }
-    let authors = this.state.author.map(data => {
+
+    let authors = this.props.author.map(data => {
+      console.log(data.books[0])
       return(
-        <div className="author" key={data.name} onClick={authorDetail} >
-          <h3>{data.name}</h3>
+        <div className="author" key={data._id} onClick={authorDetail} >
+          <Link to={'/author-detail/' + data._id}>
+            <h3>{data.name}</h3>
+          </Link>
         </div>
+        
       )
     })
 
