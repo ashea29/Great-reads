@@ -26,16 +26,22 @@ class AuthorDetail extends Component{
     return(
       <div className="authors-book">
         <h1>{this.props.match.params.name}</h1>
+        
         {this.state.books.map(data =>
           <div key={data._id}>
             <h3>{data.title}</h3>
             <p>{data.description}</p>
+            <img src={data.coverImgURL} alt={data.coverImgURL}></img>
+            
           </div>
        )}
       </div>
     )
     }else{
-      return(<div></div>)
+      return(
+        <div className="authors-book">
+          <h1>{this.props.match.params.name}</h1>
+        </div>)
     }
   }
 }

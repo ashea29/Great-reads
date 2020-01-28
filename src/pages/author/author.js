@@ -54,6 +54,7 @@ class Author extends Component {
     this.getAuthor()
   }
   render() {
+    
     return (
       <div>
 
