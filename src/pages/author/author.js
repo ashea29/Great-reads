@@ -50,6 +50,7 @@ class Author extends Component {
       .then(() => this.getAuthor())
   }
 
+
   render() {
 
     return (
