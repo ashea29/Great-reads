@@ -13,14 +13,23 @@
 .author .name{
     display: inline-block;
 }
-.author:hover{
+.author:hover, .addauthor button:hover{
     border: .05em green solid;
     background: none;
 }
-.author:hover .name{
+.author:hover .name, .addauthor button:hover{
     color: green;
 }
-
+.addauthor button{
+    width:78%;
+    height: 7vh;
+    border-radius: 10px;
+    border: .05em darkgrey solid;
+    background: rgba(207, 221, 207, 0.384);
+    font-size: 2.5vmin;
+    color: grey;
+    cursor: pointer;
+}
 
 @media only screen and (min-width: 768px){
 
