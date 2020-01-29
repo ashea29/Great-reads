@@ -3,24 +3,32 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  height: 60vh;
+  max-height: 60vh;
   margin: 17vh 8vw 20vmin 8vw;
+  background: #becabf;
 }
 .bookdetail{
   flex:2;
   text-align: left;
-  height: 60vh;
+  min-height: 40vh;
   padding-top: 0;
+  background: #e1ebe2;
+  border: .1em black solid;
+  margin: 3vmin -3vmin 3vmin 0;
+  padding: 3vmin;
 }
 .bookdetail h2{
   padding-top: 0;
   margin: 0;
   font-size: 4vmin;
+  text-shadow: 1px 1px 1px lightgrey;
 }
 .bookdetail p{
   font-size: 3vmin;
   margin-bottom: 20vmin;
   text-align: justify;
+  display: block;
+
 }
 .bookdetailimageholder{
 flex:1;
@@ -35,13 +43,11 @@ height: 60vh;
   align-self: center;
   margin-right: 5vmin;
   text-align: right;
-  border-radius: 10px;
 }
 .bookidsave{
 margin:0;
 width: 7vmin;
 height: 4vmin;
-border-radius: 0 10px 0 10px;
 background: grey;
 color: white;
 border: none;
@@ -50,8 +56,30 @@ border: none;
   background: white;
   color: grey;
 }
-@media only screen and (min-width: 768px){
+@media only screen and (max-width: 768px){
+  
   .bookdetailholder{
-    margin: 20vh 8vw 20vmin 8vw;
+    margin: 20vh 0;
+    display: block;
+    background: grey;
+height: 30vh;
+background: #becabf;
   }
+  .bookdetail{
+      text-align: left;
+      min-height: 40vh;
+      padding-top: 0;
+      background: #e1ebe2;
+      border: .1em black solid;
+      margin: 3vmin 5vmin 3vmin 5vmin;
+      padding: 3vmin;
+    }
+    .bookdetailimageholder{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      background: none;
+      margin: 5vmin 0;
+    }
 }
