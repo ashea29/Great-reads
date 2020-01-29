@@ -80,7 +80,7 @@ bottom: 0;
 left: 15vw;
 width: 20vw;
 color: white;
-background: goldenrod;
+background: green;
 height: 5vh;
 border-radius: 10px;
 font-size: 3vmin;
@@ -88,5 +88,5 @@ outline: none;
 }
 .bookpopup  .submitbutton:hover{
   background: white;
-  color: goldenrod;
+  color: green;
 }
