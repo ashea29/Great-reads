@@ -15,12 +15,15 @@
 }
 
 .detail-container{
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
  
 }
 
 .details{
-  width: 70 vmin;
+  width: 60vmin;
   border: .1em black solid;
   padding: 1%;
   margin: 5% 2.5%;
@@ -30,11 +33,7 @@
 
 @media only screen and (min-width: 768px){
 
-  .detail-container{
-    display: flex;
-    justify-content: space-between;
 
-  }
  
 
 }
