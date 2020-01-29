@@ -48,6 +48,7 @@ class Author extends Component {
       })
     }).then((res) => res.json())
       .then(() => this.getAuthor())
+      .then(() => this.setState({ authorAction: "" }))
   }
 
 
