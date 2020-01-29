@@ -2,7 +2,7 @@
   margin: 20vmin 10vmin;
 }
 .name h1{
-  margin: 10vmin 0 5vmin 0;
+  margin: 10vmin 0 2vmin 0;
   
 }
 .cover-image{
@@ -15,35 +15,31 @@
 }
 
 .detail-container{
-  display: grid;
+  display: inline-block;
+ 
 }
 
 .details{
-  margin: 2.5% 0;
+  width: 45vmin;
+  border: .1em black solid;
+  padding: 1%;
+  margin: 5% 2.5%;
+  background: #becabf;
 }
 
 
 @media only screen and (min-width: 768px){
 
   .detail-container{
-      display: grid;
-      grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+    display: flex;
+    justify-content: space-between;
 
   }
-  .details{
-    margin: 5%;
-  }
+ 
 
 }
 
 @media only screen and (min-width: 1200px){
 
-  .detail-container{
-      display: grid;
-      grid-template: repeat(4, 1fr) / repeat(4, 1fr)
-  }
-
-  .details{
-    margin: 7%;
-  }
+  
 }
