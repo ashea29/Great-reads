@@ -62,8 +62,12 @@ class Author extends Component {
           authorSubmitHandle={this.authorSubmitHandle}
           authorInputHandle={e => this.authorInputHandle(e)}
         />
-        <button onClick={this.createAuthorHandle}>Create a new Author</button>
+
         <div className="authorholder">
+          <div className="addauthor">
+            <button onClick={this.createAuthorHandle}>Create a new Author</button>
+          </div>
+
           {this.state.authors.map(data =>
             <div key={data._id} className='author' >
               <Link to={`/author/${data.name}`} style={{ textDecoration: 'none', color: 'black' }}>
