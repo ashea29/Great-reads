@@ -58,6 +58,10 @@ padding:0;
   margin:2vmin auto;
   padding:0;
 }
+.eachbooktitleholder{
+  text-decoration: none;
+  color: black;
+}
 .eachbooktitle{
   font-size: 2.7vmin;
   font-weight: 600;
@@ -67,6 +71,6 @@ padding:0;
   color: grey;
   text-decoration: none;
 }
-.eachbookauthor:hover{
+.eachbookauthor:hover, .eachbooktitle:hover{
   color: green;
 }
