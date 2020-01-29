@@ -1,11 +1,49 @@
 .authors-book{
   margin: 20vmin 10vmin;
 }
+.name h1{
+  margin: 10vmin 0 5vmin 0;
+  
+}
 .cover-image{
-    width: 30vmin;
-    height: 45vmin;
+    width: 20vmin;
+    height: 30vmin;
 }
 
-.name{
-    width: 100%;
+.title-description p{
+  font-size: .8em ;
+}
+
+.detail-container{
+  display: grid;
+}
+
+.details{
+  margin: 2.5% 0;
+}
+
+
+@media only screen and (min-width: 768px){
+
+  .detail-container{
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr)
+
+  }
+  .details{
+    margin: 5%;
+  }
+
+}
+
+@media only screen and (min-width: 1200px){
+
+  .detail-container{
+      display: grid;
+      grid-template: repeat(4, 1fr) / repeat(4, 1fr)
+  }
+
+  .details{
+    margin: 7%;
+  }
 }
