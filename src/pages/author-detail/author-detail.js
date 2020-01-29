@@ -32,7 +32,7 @@ class AuthorDetail extends Component{
           <div key={data._id}>
             <h3>{data.title}</h3>
             <p>{data.description}</p>
-            <img src={data.coverImgURL} alt={data.coverImgURL}></img>
+            <img src={data.coverImgURL} alt={data.coverImgURL} className="coverImage"></img>
             
           </div>
        )}

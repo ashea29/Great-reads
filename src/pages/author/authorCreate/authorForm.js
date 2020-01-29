@@ -11,13 +11,11 @@ const authorForm = (props) => {
 
         <input type="text" required className="authorinput" 
           placeholder="Author's Name" 
-          onChange ={e=> props.authorInputHandle(e)}
-        />
+          onChange ={e=> props.authorInputHandle(e)} required />
         <button 
           type="submit" 
           className="authorsubmitbutton"
-          onClick={props.authorSubmitHandle}
-        >Submit
+          onClick={e => props.authorSubmitHandle(e)}>Submit
         </button>
 
       </div>
