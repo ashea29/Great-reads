@@ -11,7 +11,8 @@ class Author extends Component {
       authorAction: "",
       authorName: "",
 
-      newAuthorAdded: false
+      newAuthorAdded: false,
+      authorDetail: ""
     }
   }
 
@@ -35,7 +36,6 @@ class Author extends Component {
     this.setState({ authorName: value })
   }
   authorSubmitHandle = (e) => {
-    console.log('works')
     e.preventDefault()
     const url = "https://great-reads-seir1118.herokuapp.com/authors"
     fetch(url, {
@@ -47,12 +47,10 @@ class Author extends Component {
         name: this.state.authorName
       })
     }).then((res) => res.json())
+      .then(() => this.getAuthor())
   }
 
 
-  componentDidUpdate() {
-    this.getAuthor()
-  }
   render() {
 
     return (
