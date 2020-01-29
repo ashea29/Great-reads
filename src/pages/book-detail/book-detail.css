@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: flex-start;
   height: 60vh;
-  margin: 10vmin 8vmin 20vmin 8vmin;
+  margin: 17vh 8vw 20vmin 8vw;
 }
 .bookdetail{
   flex:2;
@@ -37,6 +37,6 @@ height: 60vh;
 }
 @media only screen and (min-width: 768px){
   .bookdetailholder{
-    margin: 10vmin 20vmin 20vmin 20vmin;
+    margin: 20vh 8vw 20vmin 8vw;
   }
 }
