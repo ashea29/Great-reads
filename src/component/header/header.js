@@ -5,13 +5,17 @@ import "./header.css"
 const Header = (props) => {
   return (
     <div className='header'>
-      <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
-        <h1>Great Books</h1>
+      <Link to='/' className="logolink">
+        <h1><span className="one">Gr</span><span className="two">ea</span><span className="one">t</span>
+          <span className="two">B</span><span className="one">oo</span><span className="two">ks</span>
+        </h1>
       </Link>
-      <Link to='/author' style={{ textDecoration: 'none', color: 'black' }}>
-        <h2>Authors</h2>
-      </Link>
-      <h2 onClick={() => props.bookCreateHandle()}>Create Books</h2>
+      <section className="headerright">
+        <Link to='/author' className="authorlink">
+          <h2>Authors</h2>
+        </Link ><small>|</small>
+        <h2 className="createbooklink" onClick={() => props.bookCreateHandle()}>Create Books</h2>
+      </section>
     </div>
   )
 }

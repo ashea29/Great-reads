@@ -55,13 +55,24 @@ class App extends Component {
 
 
     }
+    this.clearInput()
   }
-  escHandle = () => {
+  clearInput = () => {
+    let inputs = document.querySelectorAll('input')
+    inputs.forEach(input => input.value = "")
+    let bookTextArea = document.querySelector('.bookdetail')
+    bookTextArea.value = ""
+  }
+  emptySearch = () => {
     this.setState({ bookAuthor: "" })
     this.setState({ bookTitle: "" })
     this.setState({ bookDetail: "" })
     this.setState({ bookUrl: "" })
     this.setState({ bookAction: "" })
+  }
+  escHandle = () => {
+    this.emptySearch()
+    this.clearInput()
   }
 
   editBooks = () => {
@@ -83,6 +94,7 @@ class App extends Component {
   }
   // backup
   bookSubmitHandle = (e) => {
+    e.preventDefault()
     if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
       const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookAuthor}`
       if (this.state.bookAction === "edit") {
@@ -103,11 +115,7 @@ class App extends Component {
           }
         ).then((res) => res.json()).then(() => this.getBooks())
       }
-      this.setState({ bookAuthor: "" })
-      this.setState({ bookTitle: "" })
-      this.setState({ bookDetail: "" })
-      this.setState({ bookUrl: "" })
-      this.setState({ bookAction: "" })
+      this.emptySearch()
     } else {
       this.setState({ bookUrl: "omg!!!Don't" })
     }
@@ -125,7 +133,7 @@ class App extends Component {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
     return (
       <div className="App">
-        <p className="urlreminder">{urlreminder}</p>
+        <p className={urlreminder ? "urlreminder" : "none"}>{urlreminder}</p>
         <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
         <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>

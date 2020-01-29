@@ -1,17 +1,26 @@
-.author{
-    display: grid;
+.authorholder{
+    margin: 15vh 5vw;
 }
 .author{
-    margin: 5% 20%;
+    border-radius: 10px;
+    border: .05em grey solid;
+    padding: 0 2vmin;
+    width: 30vw;
+    display: inline-block;
+    margin: 3vmin 5vmin;
+    background: rgba(207, 221, 207, 0.384);
 }
-.author{
-    border: .05em black solid;
-
+.author .name{
+    display: inline-block;
 }
-
-.name:hover{
+.author:hover{
+    border: .05em green solid;
+    background: none;
+}
+.author:hover .name{
     color: green;
 }
+
 
 @media only screen and (min-width: 768px){
 

@@ -49,12 +49,12 @@ class Author extends Component {
     }).then((res) => res.json())
   }
 
- 
+
   componentDidUpdate() {
     this.getAuthor()
   }
   render() {
-    
+
     return (
       <div>
 
@@ -63,13 +63,15 @@ class Author extends Component {
           authorInputHandle={e => this.authorInputHandle(e)}
         />
         <button onClick={this.createAuthorHandle}>Create a new Author</button>
-        {this.state.authors.map(data =>
-          <div key={data._id} className='author'>
-            <Link to={`/author/${data.name}`} style={{textDecoration: 'none', color: 'black'}}>
-              <h3 className='name'>{data.name}</h3>
-            </Link>
-          </div>
-        )}
+        <div className="authorholder">
+          {this.state.authors.map(data =>
+            <div key={data._id} className='author' >
+              <Link to={`/author/${data.name}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <h3 className='name'>{data.name}</h3>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     )
   }
