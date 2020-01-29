@@ -21,9 +21,11 @@ class AuthorDetail extends Component{
   }
 
 
-  
+
   render(){
+    console.log(this.props.match.params.name)
     if(this.state.books.length !== 0){
+
     return(
       <div className="authors-book">
         <div className='name'>
@@ -47,6 +49,7 @@ class AuthorDetail extends Component{
 
       </div>
     )
+
     }else{
       return(
         <div className="authors-book">
