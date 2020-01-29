@@ -6,6 +6,7 @@
     right:0;
     bottom:90vh;
     background: rgb(190, 202, 191);
+    z-index: 99;
 }
 .logolink, .authorlink, .createbooklink{
     display: inline-block;

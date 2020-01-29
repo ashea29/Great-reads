@@ -1,5 +1,5 @@
 .bookdisplay{
-margin: 10vh 5vw;
+margin: 15vh 5vw;
 text-align: center;
 display: flex;
 justify-content: center;
@@ -8,9 +8,18 @@ flex-wrap: wrap;
 .eachbookholder{
 position: relative;
 width: 23vmin;
-height: 45vmin;
+height: 55vmin;
 margin: 3vmin 2.5vmin;
 padding:0;
+}
+.bookdetaillinksection{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 90%;
+  cursor: pointer;
+  background: none;
 }
 .eachbookimage{
   width: 100%;
@@ -24,25 +33,17 @@ padding:0;
   transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
+  position: relative;
 }
 .eachbookimage:hover{
   opacity: 0.7;
-}
-
-.bookdetaillinksection{
-  position: absolute;
-  top: 0;
-  left:0;
-  width: 100%;
-  height: 70%;
-  cursor: pointer;
 }
 .eachbookholder .bookdelete, .eachbookholder .bookedit{
   color: white;
   position: absolute;
   background: grey;
   padding: 0.4vmin 1vmin;
-  bottom: 22.3%;
+  bottom: 0;
   cursor: pointer;
   font-size: 2vmin;
 }
@@ -56,4 +57,16 @@ padding:0;
   font-size: 2vmin;
   margin:2vmin auto;
   padding:0;
+}
+.eachbooktitle{
+  font-size: 2.7vmin;
+  font-weight: 600;
+  cursor: pointer;
+}
+.eachbookauthorholder{
+  color: grey;
+  text-decoration: none;
+}
+.eachbookauthor:hover{
+  color: green;
 }
