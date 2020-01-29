@@ -1,7 +1,11 @@
 .authors-book{
-  margin-top: 10vmin;
+  margin: 20vmin 10vmin;
 }
 .cover-image{
     width: 30vmin;
     height: 45vmin;
+}
+
+.name{
+    width: 100%;
 }

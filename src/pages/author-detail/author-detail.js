@@ -26,17 +26,17 @@ class AuthorDetail extends Component{
     if(this.state.books.length !== 0){
     return(
       <div className="authors-book">
-      <div className='name'>
-        <h1>{this.props.match.params.name}</h1>
-      </div>
+        <div className='name'>
+          <h1>{this.props.match.params.name}</h1>
+        </div>
         
         
         {this.state.books.map(data =>
-          <div key={data._id}>
+          <div key={data._id} className="detail">
             <div className= 'img-holder'>
               <img src={data.coverImgURL} alt={data.coverImgURL} className="cover-image"></img>
             </div>
-            <div className= 'details'>
+            <div className= 'title-description'>
               <h3>{data.title}</h3>
               <p>{data.description}</p>
             </div>
@@ -50,7 +50,7 @@ class AuthorDetail extends Component{
     }else{
       return(
         <div className="authors-book">
-          <div className='details'>
+          <div className='name'>
             <h1>{this.props.match.params.name}</h1>
           </div>
           
