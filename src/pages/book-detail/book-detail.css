@@ -1,0 +1,42 @@
+.bookdetailholder{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 60vh;
+  margin: 17vh 8vw 20vmin 8vw;
+}
+.bookdetail{
+  flex:2;
+  text-align: left;
+  height: 60vh;
+  padding-top: 0;
+}
+.bookdetail h2{
+  padding-top: 0;
+  margin: 0;
+  font-size: 4vmin;
+}
+.bookdetail p{
+  font-size: 3vmin;
+  margin-bottom: 20vmin;
+  text-align: justify;
+}
+.bookdetailimageholder{
+flex:1;
+height: 60vh;
+}
+.bookdetailimage{
+  width: 40vmin;
+  height: 65vmin;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: center;
+  margin-right: 5vmin;
+}
+@media only screen and (min-width: 768px){
+  .bookdetailholder{
+    margin: 20vh 8vw 20vmin 8vw;
+  }
+}

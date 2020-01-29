@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import "./book-detail.css"
 
 class BookDetail extends Component {
   constructor(props) {
@@ -15,18 +16,15 @@ class BookDetail extends Component {
   render() {
     return (
       <div>
-        <article>
-          <section className="bookdetail">
-            <h2>{this.state.book.title}</h2>
-            {/* <h3>{this.state.book.author.name}</h3> */}
-          </section>
-
+        <article className="bookdetailholder">
           <section className="bookdetailimageholder">
             <div className="bookdetailimage" style={{ backgroundImage: `url(${this.state.book.coverImgURL})` }} />
           </section>
-        </article>
-        <article>
-          <p>{this.state.book.description}</p>
+          <section className="bookdetail">
+            <h2>{this.state.book.title}</h2>
+            {/* <h3>{this.state.book.author.name}</h3> */}
+            <p>{this.state.book.description}</p>
+          </section>
         </article>
       </div>
     )

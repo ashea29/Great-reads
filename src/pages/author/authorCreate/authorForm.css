@@ -47,7 +47,7 @@
   left: 20vw;
   width: 20vw;
   color: white;
-  background: goldenrod;
+  background: green;
   height: 5vh;
   border-radius: 10px;
   font-size: 3vmin;
@@ -56,5 +56,5 @@
   }
 .authorformpopup  .authorsubmitbutton:hover{
   background: white;
-  color: goldenrod;
+  color: green;
 }
