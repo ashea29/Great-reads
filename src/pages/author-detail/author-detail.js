@@ -32,20 +32,21 @@ class AuthorDetail extends Component{
           <h1>{this.props.match.params.name}</h1>
         </div>
         
-        
-        {this.state.books.map(data =>
-          <div key={data._id} className="detail">
-            <div className= 'img-holder'>
-              <img src={data.coverImgURL} alt={data.coverImgURL} className="cover-image"></img>
+        <div className="detail-container">
+          {this.state.books.map(data =>
+            <div key={data._id} className="details">
+              <div className= 'img-holder'>
+                <img src={data.coverImgURL} alt={data.coverImgURL} className="cover-image"></img>
+              </div>
+              <div className= 'title-description'>
+                <h3>{data.title}</h3>
+                <p>{data.description}</p>
+              </div>
+              
+              
             </div>
-            <div className= 'title-description'>
-              <h3>{data.title}</h3>
-              <p>{data.description}</p>
-            </div>
-            
-            
-          </div>
-       )}
+        )}
+       </div>
 
       </div>
     )
