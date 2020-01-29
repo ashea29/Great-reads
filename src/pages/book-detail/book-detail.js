@@ -14,6 +14,16 @@ class BookDetail extends Component {
     fetch(url).then(res => res.json()).then(res => this.setState({ book: res }))
   }
   render() {
+
+    // Note: author details may be undefined as the data is coming
+    // back from the db.  Handle this condition.
+    let authName;
+    if (this.state.book.author === undefined) {
+      authName = ""
+    } else {
+      authName = <h3>{this.state.book.author.name}</h3>
+    }
+
     return (
       <div>
         <article className="bookdetailholder">
@@ -22,7 +32,7 @@ class BookDetail extends Component {
           </section>
           <section className="bookdetail">
             <h2>{this.state.book.title}</h2>
-            {/* <h3>{this.state.book.author.name}</h3> */}
+            {authName}
             <p>{this.state.book.description}</p>
           </section>
         </article>
