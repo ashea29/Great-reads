@@ -17,8 +17,4 @@ describe("App component:", () => {
   it("has more than 3 routes", () => {
     expect(component.find(Route).length).toBeGreaterThanOrEqual(4)
   })
-  it('should have empty state call bookAction, bookClicked', () => {
-    expect(component.state('bookAction')).toEqual('')
-    expect(component.state('bookClicked')).toEqual('')
-  })
 })
