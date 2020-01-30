@@ -18,4 +18,8 @@ describe('BookForm Component', () => {
     wrapper.setProps({ bookAction: "" })
     expect(wrapper.hasClass('none')).toEqual(true)
   })
+  it("book author input should be display as <p></p> when bookAction prop is 'edit'", () => {
+    wrapper.setProps({ bookAction: "edit" })
+    expect(wrapper.contains(<p></p>)).toBe(true)
+  })
 })
