@@ -146,7 +146,6 @@ class App extends Component {
     }
     if (!idArr.includes(newBook._id)) {
       savedBookId.push(newBook)
-      console.log('unique')
     }
     this.setState({ savedBookId })
     localStorage.setItem('savedBookId', JSON.stringify(savedBookId))

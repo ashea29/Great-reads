@@ -4,7 +4,6 @@ import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
 import { Route } from 'react-router-dom'
 import App from "./App.js"
-import Header from "./component/header/header"
 
 describe("App component:", () => {
   let component
