@@ -8,8 +8,7 @@ flex-wrap: wrap;
 .eachbookholder{
 position: relative;
 width: 23vmin;
-height: 55vmin;
-margin: 3vmin 2.5vmin;
+margin: 6vmin 2.5vmin;
 padding:0;
 }
 .bookdetaillinksection{
@@ -58,10 +57,11 @@ color: grey;
   right: 0;
 }
 .eachbookholder p{
-  font-size: 2vmin;
+  font-size: 3vmin;
   margin:2vmin auto;
   padding:0;
 }
+
 .eachbooktitleholder{
   text-decoration: none;
   color: black;

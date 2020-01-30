@@ -14,7 +14,7 @@ const Main = (props) => {
             <small className="bookdelete" id={eachBook._id} onClick={(e) => props.bookIdHandle(e)}>Delete</small>
             <small className="bookedit" id={eachBook._id} onClick={(e) => props.bookIdHandle(e)}>Edit</small>
           </section>
-          <section>
+          <section className='title-author'>
             <Link to={`/book/${eachBook._id}`} className="eachbooktitleholder">
               <p className="eachbooktitle">{eachBook.title}</p>
             </Link>

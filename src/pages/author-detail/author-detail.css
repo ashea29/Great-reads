@@ -10,6 +10,17 @@
     height: 30vmin;
 }
 
+.cover-image:hover{
+  opacity: 0.8;
+}
+
+.book-title{
+  text-decoration: none;
+  color: black;
+}
+.title-description h3:hover{
+  color: green;
+}
 .title-description p{
   font-size: .8em ;
 }

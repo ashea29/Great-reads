@@ -4,14 +4,16 @@
 .author{
     border-radius: 10px;
     border: .05em grey solid;
-    padding: 0 2vmin;
-    width: 30vw;
+    padding: 0 4vmin;
+    width: 33vw;
     display: inline-block;
     margin: 3vmin 5vmin;
     background: rgba(207, 221, 207, 0.384);
 }
 .author .name{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .author:hover, .addauthor button:hover{
     border: .05em green solid;
@@ -20,6 +22,7 @@
 .author:hover .name, .addauthor button:hover{
     color: green;
 }
+
 .addauthor button{
     width:78%;
     height: 7vh;
