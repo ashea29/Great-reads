@@ -55,6 +55,12 @@
 .bookpopup .bookauthor{
   right:0;
 }
+.bookpopup .bookeditname{
+  left:0;
+  width: 99.2%;
+  top: 0;
+  font-size: 1.7vmin;
+}
 .bookpopup .bookurl{
   left:0;
   width: 99.2%;
