@@ -1,7 +1,7 @@
 .authorformpopup{
   position: fixed;
   top: 20vh;
-  height: 40vh;
+  height: 25%;
   left: 20vw;
   right: 20vw;
   background: white;
@@ -57,4 +57,25 @@
 .authorformpopup  .authorsubmitbutton:hover{
   background: white;
   color: green;
+}
+@media only screen and (min-width: 632px){
+  .authorformpopup{
+    position: fixed;
+    top: 20vh;
+    height: 50%;
+    left: 20vw;
+    right: 20vw;
+    background: white;
+    border-radius: 10px;
+    z-index: 2;
+    }
+
+ 
+
+}
+
+@media only screen and (min-width: 1200px){
+
+
+  
 }

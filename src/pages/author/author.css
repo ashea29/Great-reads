@@ -22,6 +22,7 @@
 .author:hover .name, .addauthor button:hover{
     color: green;
 }
+
 .addauthor button{
     width:78%;
     height: 7vh;
