@@ -7,7 +7,6 @@ const Main = (props) => {
     <div className="bookdisplay">
       {props.books.map(eachBook =>
         <div key={eachBook._id} className="eachbookholder"  >
-          <div className="bookdetaillinksection"></div>
           <section id={eachBook._id} onClick={(e) => props.bookIdHandle(e)} style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
             <div onClick={(e) => props.bookIdHandle(e)}>
               <Link to={`/book/${eachBook._id}`}><section id={eachBook._id} className="bookdetaillinksection"></section></Link>

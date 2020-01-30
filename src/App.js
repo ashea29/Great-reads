@@ -30,7 +30,6 @@ class App extends Component {
     const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
     if (fetchId) {
       this.setState({ savedBookId: fetchId })
-      console.log("this.componentDidMount")
     }
     console.log(fetchId)
     this.getBooks()

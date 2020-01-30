@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "./saved.css"
+import "../book-detail/book-detail.css"
 
 class Saved extends Component {
   constructor(props) {
@@ -32,10 +33,8 @@ class Saved extends Component {
     newFetchId.splice(removedIndex, 1)
     localStorage.setItem('savedBookId', JSON.stringify(newFetchId))
     this.setState({ savedBook: newFetchId })
-    console.log(removedIndex, newFetchId)
   }
   render() {
-    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
     if (this.state.savedBook[0] && this.state.savedBook[0].author) {
       return (
         <div className="savedbook">
@@ -45,8 +44,8 @@ class Saved extends Component {
               <div key={eachBook._id} className="eachbookholder"  >
 
                 <section id={eachBook._id} style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
-                  <div onClick={(e) => this.props.bookIdHandle(e)}>
-                    <Link to={`/book/${eachBook._id}`}><section id={eachBook._id} className="bookdetailhover">  </section></Link>
+                  <div>
+                    <Link to={`/book/${eachBook._id}`}><section className="bookdetaillinksection" /></Link>
                   </div>
                   <small className="bookdelete" index={i} onClick={e => this.removeHandle(e)}>Remove</small>
                 </section>
@@ -68,7 +67,7 @@ class Saved extends Component {
         <div>
           <br /> <br /> <br /> <br /> <br /> <br />
           <br /> <br /> <br /> <br /> <br /> <br />
-          <h1> Loading... </h1>
+          <h1> Waiting for book.. </h1>
         </div>
       )
     }
