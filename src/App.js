@@ -161,7 +161,7 @@ class App extends Component {
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} bookIdSaveHandle={e => this.bookIdSaveHandle(e)} />} />
-          <Route exact path="/saved" render={(props) => <Saved {...props} savedBookId={this.state.savedBookId} bookIdHandle={e => this.bookIdHandle(e)} />} />
+          <Route exact path="/saved" render={(props) => <Saved {...props} bookIdHandle={e => this.bookIdHandle(e)} />} />
         </Switch>
       </div>
     );

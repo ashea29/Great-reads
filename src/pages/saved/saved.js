@@ -30,9 +30,9 @@ class Saved extends Component {
           {this.state.savedBook.map((eachBook, i) =>
             <div key={eachBook._id} className="eachbookholder"  >
 
-              <section id={eachBook._id} style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
-                <div onClick={(e) => this.props.bookIdHandle(e)}>
-                  <Link to={`/book/${eachBook._id}`}><section id={eachBook._id} className="bookdetailhover">  </section></Link>
+              <section style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
+                <div id={eachBook._id} onClick={(e) => this.props.bookIdHandle(e)}>
+                  <Link to={`/book/${eachBook._id}`}><section id={eachBook._id} className="bookdetaillinksection">  </section></Link>
                 </div>
                 <small className="bookdelete" index={i} onClick={e => this.removeHandle(e)}>Remove</small>
               </section>
