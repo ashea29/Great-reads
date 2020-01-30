@@ -17,20 +17,20 @@
   right: 19.99vw;
   width: 5vmin;
   height: 5vmin;
-  background: royalblue;
+  background: green;
   color: white;
   line-height: 5vmin;
   border-radius: 5px;
   cursor: pointer;
 }
 .bookpopup .esc:hover{
-  color: blue;
+  color: green;
   background: white;
 }
 .bookinputholder{
   position: fixed;
   top: 35vh;
-  bottom: 25vh;
+  bottom: 22vh;
   left: 25vw;
   right: 25vw;
 }
@@ -62,12 +62,13 @@
   font-size: 1.7vmin;
 }
 .bookpopup .bookdetail{
-display: inline-block;
 position: absolute;
-top: 16vmin;
-left:0;
-width: 98.6%;
-height: 15vmin;
+top: 15vh;
+left: 0;
+width: 99.2%;
+min-height: 20vh;
+margin:0;
+padding:0;
 border-radius: 2px;
 border: 1px solid grey;
 font-weight: 2vmin;

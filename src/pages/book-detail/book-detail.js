@@ -33,7 +33,13 @@ class BookDetail extends Component {
             <div className="bookdetailimage" style={{ backgroundImage: `url(${this.state.book.coverImgURL})` }} >
               <button className="bookidsave"
                 onClick={e => this.props.bookIdSaveHandle(e)}
-                saved={this.state.book._id}
+                savedId={this.state.book._id}
+                savedTitle={this.state.book.title}
+                savedUrl={this.state.book.coverImgURL}
+                savedAuthor={this.state.book.author ? this.state.book.author.name : ""}
+              // savedBook={authName} => {Object Object}
+              // savedBook={this.state.book} => Cannot use {Object Object}
+              //savedBook={this.state.book.title} => works
               >Save</button>
             </div>
           </section>

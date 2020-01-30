@@ -27,14 +27,8 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
-    if (fetchId) {
-      this.setState({ savedBookId: fetchId })
-    }
-    console.log(fetchId)
     this.getBooks()
   }
-
   getBooks() {
     fetch("https://great-reads-seir1118.herokuapp.com/")
       .then(res => res.json())
@@ -138,11 +132,21 @@ class App extends Component {
   }
   bookIdSaveHandle = (e) => {
     const savedBookId = this.state.savedBookId.concat()
-    const newId = e.target.attributes.getNamedItem('saved').value
-    if (!savedBookId.includes(newId)) {
-      savedBookId.push(newId)
+    const newId = e.target.attributes.getNamedItem('savedId').value
+    const newTitle = e.target.attributes.getNamedItem('savedTitle').value
+    const newUrl = e.target.attributes.getNamedItem('savedUrl').value
+    const newAuthor = e.target.attributes.getNamedItem('savedAuthor').value
+    const newBook = {
+      _id: newId,
+      title: newTitle,
+      coverImgURL: newUrl,
+      author: newAuthor
+    }
+    if (!savedBookId.includes(newBook)) {
+      savedBookId.push(newBook)
     }
     this.setState({ savedBookId })
+    console.log(newBook)
     localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
   }
   render() {
