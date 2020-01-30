@@ -67,9 +67,26 @@ Based on the initial logic defined in the previous sections try and breakdown th
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+const newBook = {
+      _id: newId,
+      title: newTitle,
+      coverImgURL: newUrl,
+      author: newAuthor
+    }
+    if (!idArr.includes(newBook._id)) {
+      savedBookId.push(newBook)
+    }
+    this.setState({ savedBookId })
+    localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
+```
+```
+  removeHandle = (e) => {
+    const newFetchId = this.state.savedBook.concat()
+    const removedIndex = e.target.attributes.getNamedItem('index').value
+    newFetchId.splice(removedIndex, 1)
+    localStorage.setItem('savedBookId', JSON.stringify(newFetchId))
+    this.setState({ savedBook: newFetchId })
+  }
 ```
 
 ## Issues and Resolutions
