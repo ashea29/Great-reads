@@ -132,6 +132,8 @@ class App extends Component {
   }
   bookIdSaveHandle = (e) => {
     const savedBookId = this.state.savedBookId.concat()
+    const idArr = []
+    savedBookId.forEach(e => idArr.push(e._id))
     const newId = e.target.attributes.getNamedItem('savedId').value
     const newTitle = e.target.attributes.getNamedItem('savedTitle').value
     const newUrl = e.target.attributes.getNamedItem('savedUrl').value
@@ -142,8 +144,9 @@ class App extends Component {
       coverImgURL: newUrl,
       author: newAuthor
     }
-    if (!savedBookId.includes(newBook)) {
+    if (!idArr.includes(newBook._id)) {
       savedBookId.push(newBook)
+      console.log('unique')
     }
     this.setState({ savedBookId })
     localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
