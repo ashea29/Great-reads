@@ -11,7 +11,7 @@
   margin: 6vmin 2.5vmin;
   padding:3%;
   border: black solid .1em;
-  background-color: #becabf;
+  background-color:  rgba(207, 221, 207, 0.384);
 }
 .bookdetaillinksection{
   position: absolute;
