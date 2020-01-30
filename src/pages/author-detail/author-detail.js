@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "./author-detail.css"
+import { Link } from "react-router-dom"
 
 
 class AuthorDetail extends Component{
@@ -35,9 +36,11 @@ class AuthorDetail extends Component{
         <div className="detail-container">
           {this.state.books.map(data =>
             <div key={data._id} className="details">
-              <div className= 'img-holder'>
-                <img src={data.coverImgURL} alt={data.coverImgURL} className="cover-image"></img>
-              </div>
+              <Link to={`/book/${data._id}`}>
+                <div className= 'img-holder'>
+                  <img src={data.coverImgURL} alt={data.coverImgURL} className="cover-image"></img>
+                </div>
+              </Link>
               <div className= 'title-description'>
                 <h3>{data.title}</h3>
                 <p>{data.description}</p>
