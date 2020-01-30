@@ -41,7 +41,7 @@ class Saved extends Component {
                   <p className="eachbooktitle">{eachBook.title}</p>
                 </Link>
                 <Link to={`/author/${eachBook.author}`} className="eachbookauthorholder">
-                  <p className="eachbookauthor" >{eachBook.author.name}</p>
+                  <p className="eachbookauthor" >{eachBook.author}</p>
                 </Link>
               </section>
             </div>
