@@ -5,7 +5,8 @@ class BookDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      book: {}
+      book: {},
+      savedBookId: []
     }
   }
   componentDidMount() {
@@ -13,9 +14,7 @@ class BookDetail extends Component {
     const url = `https://great-reads-seir1118.herokuapp.com/books/${id}`
     fetch(url).then(res => res.json()).then(res => this.setState({ book: res }))
   }
-  bookIdSaveHandle = (e) => {
-    const savedBookId = this.state.book._id
-  }
+
   render() {
 
     // Note: author details may be undefined as the data is coming
@@ -33,7 +32,8 @@ class BookDetail extends Component {
           <section className="bookdetailimageholder">
             <div className="bookdetailimage" style={{ backgroundImage: `url(${this.state.book.coverImgURL})` }} >
               <button className="bookidsave"
-                onClick={e => this.bookIdSaveHandle(e)}
+                onClick={e => this.props.bookIdSaveHandle(e)}
+                saved={this.state.book._id}
               >Save</button>
             </div>
           </section>

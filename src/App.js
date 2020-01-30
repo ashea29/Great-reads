@@ -8,6 +8,7 @@ import BookDetail from "./pages/book-detail/book-detail"
 import BookForm from "./component/bookCreateEdit/bookForm"
 import Authors from "./pages/author/author"
 import AuthorDetail from "./pages/author-detail/author-detail"
+import Saved from "./pages/saved/saved"
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +22,17 @@ class App extends Component {
       bookTitle: "",
       bookUrl: "",
       bookDetail: "",
+
+      savedBookId: []
     }
   }
   componentDidMount() {
+    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
+    if (fetchId) {
+      this.setState({ savedBookId: fetchId })
+      console.log("this.componentDidMount")
+    }
+    console.log(fetchId)
     this.getBooks()
   }
 
@@ -119,7 +128,6 @@ class App extends Component {
     } else {
       this.setState({ bookUrl: "omg!!!Don't" })
     }
-
   }
   inputHandle = (e) => {
     const result = e.target.value;
@@ -128,6 +136,15 @@ class App extends Component {
     else if (where === "title") { this.setState({ bookTitle: result }) }
     else if (where === "detail") { this.setState({ bookDetail: result }) }
     else if (where === "url") { this.setState({ bookUrl: result }) }
+  }
+  bookIdSaveHandle = (e) => {
+    const savedBookId = this.state.savedBookId.concat()
+    const newId = e.target.attributes.getNamedItem('saved').value
+    if (!savedBookId.includes(newId)) {
+      savedBookId.push(newId)
+    }
+    this.setState({ savedBookId })
+    localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
   }
   render() {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
@@ -139,8 +156,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} delete />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
-          <Route exact path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
-          <Route exact path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} />} />
+          <Route path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
+          <Route path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} bookIdSaveHandle={e => this.bookIdSaveHandle(e)} />} />
+          <Route exact path="/saved" render={(props) => <Saved {...props} savedBookId={this.state.savedBookId} bookIdHandle={e => this.bookIdHandle(e)} />} />
         </Switch>
       </div>
     );

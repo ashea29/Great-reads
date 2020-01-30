@@ -19,6 +19,7 @@ position: absolute;
 left: 10vmin;
 top: 0;
 height: 10vh;
+font-size: 2vmin;
 }
 .logolink h1{
     font-size: 5vmin;
@@ -44,6 +45,7 @@ color: rgb(223, 230, 199);
     line-height: 10vh;
     color: white;
     text-shadow:1px 1px 2px rgba(60, 60, 95, 0.295);
+    font-size: 2.5vmin;
 }
 .headerright h2:hover{
     color: green;
@@ -53,10 +55,14 @@ color: rgb(223, 230, 199);
     color: white;
     margin: 2vmin;
 }
-@media only screen and (min-width: 768px){
-
-
-}
+@media only screen and (max-width: 768px){
+    .logolink{
+        left: 5vmin;
+    }
+    .headerright{
+        margin-right: 5vmin;
+        }
+    }
 
 @media only screen and (min-width: 1200px){
 

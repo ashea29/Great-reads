@@ -36,7 +36,7 @@ padding:0;
   position: relative;
 }
 .eachbookimage:hover{
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .eachbookholder .bookdelete, .eachbookholder .bookedit{
   color: white;
@@ -46,6 +46,10 @@ padding:0;
   bottom: 0;
   cursor: pointer;
   font-size: 2vmin;
+}
+.bookdelete:hover, .bookedit:hover{
+background: white;
+color: grey;
 }
 .eachbookholder .bookdelete{
   left: 0;
