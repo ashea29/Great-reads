@@ -42,7 +42,7 @@ class AuthorDetail extends Component{
                 </div>
               </Link>
               <div className= 'title-description'>
-                <Link to={data._id} className='book-title'>
+                <Link to={`/book/${data._id}`} className='book-title'>
                   <h3>{data.title}</h3>  
                 </Link>
                 <p>{data.description}</p>
