@@ -140,6 +140,7 @@ class App extends Component {
   bookIdSaveHandle = (e) => {
     const savedBookId = this.state.savedBookId.concat()
     const newId = e.target.attributes.getNamedItem('saved').value
+    console.log("testing saved book", e.target.attributes.getNamedItem('savedBook').value)
     if (!savedBookId.includes(newId)) {
       savedBookId.push(newId)
     }

@@ -34,6 +34,9 @@ class BookDetail extends Component {
               <button className="bookidsave"
                 onClick={e => this.props.bookIdSaveHandle(e)}
                 saved={this.state.book._id}
+              // savedBook={authName} => {Object Object}
+              // savedBook={this.state.book} => Cannot use {Object Object}
+              //savedBook={this.state.book.title} => works
               >Save</button>
             </div>
           </section>
