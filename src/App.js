@@ -146,8 +146,11 @@ class App extends Component {
       savedBookId.push(newBook)
     }
     this.setState({ savedBookId })
-    console.log(newBook)
-    // localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
+    localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
+  }
+  homeFetchingStorage = () => {
+    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
+    this.setState({ savedBookId: fetchId })
   }
   render() {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
@@ -155,7 +158,7 @@ class App extends Component {
       <div className="App">
         <p className={urlreminder ? "urlreminder" : "none"}>{urlreminder}</p>
         <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
-        <Header bookCreateHandle={this.bookCreateHandle} />
+        <Header bookCreateHandle={this.bookCreateHandle} homeFetchingStorage={() => this.homeFetchingStorage()} />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} delete />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
