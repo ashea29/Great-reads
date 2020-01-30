@@ -12,7 +12,7 @@ class BookDetail extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id
-    const url = `https://great-reads-seir1118.herokuapp.com/books/${id}`
+    const url = `http://localhost:5000/books/${id}`
     fetch(url).then(res => res.json()).then(res => this.setState({ book: res }))
   }
 

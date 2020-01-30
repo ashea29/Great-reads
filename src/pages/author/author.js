@@ -21,7 +21,7 @@ class Author extends Component {
   }
 
   getAuthor() {
-    fetch('https://great-reads-seir1118.herokuapp.com/authors')
+    fetch('http://localhost:5000/authors')
       .then(res => res.json())
       .then(res => this.setState({ authors: res }))
   }
@@ -37,7 +37,7 @@ class Author extends Component {
   }
   authorSubmitHandle = (e) => {
     e.preventDefault()
-    const url = "https://great-reads-seir1118.herokuapp.com/authors"
+    const url = "http://localhost:5000/authors"
     fetch(url, {
       method: 'POST',
       headers: {

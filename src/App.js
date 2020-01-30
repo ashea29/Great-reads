@@ -30,7 +30,7 @@ class App extends Component {
     this.getBooks()
   }
   getBooks() {
-    fetch("https://great-reads-seir1118.herokuapp.com/")
+    fetch("http://localhost:5000")
       .then(res => res.json())
       .then(res => this.setState({ books: res }))
   }
@@ -44,7 +44,7 @@ class App extends Component {
     this.setState({ bookClicked: editedBook })
     if (e.target.innerText.toLowerCase() === "edit") { this.setState({ bookAction: "edit" }); console.log("edite") }
     else if (e.target.innerText.toLowerCase() === "delete") {
-      const url = `https://great-reads-seir1118.herokuapp.com/books/${editedBook}`
+      const url = `http://localhost:5000/books/${editedBook}`
       console.log("delete", url)
       fetch(url, {
         method: 'DELETE',
@@ -78,7 +78,7 @@ class App extends Component {
   }
 
   editBooks = () => {
-    const url = "https://great-reads-seir1118.herokuapp.com/books/"
+    const url = "http://localhost:5000/books/"
     const id = this.state.bookClicked
     fetch(`${url}${id}`,
       {
@@ -98,7 +98,7 @@ class App extends Component {
   bookSubmitHandle = (e) => {
     e.preventDefault()
     if (this.state.bookUrl.includes("https://") || (this.state.bookUrl.includes("http://"))) {
-      const url = `https://great-reads-seir1118.herokuapp.com/books/${this.state.bookAuthor}`
+      const url = `http://localhost:5000/books/${this.state.bookAuthor}`
       if (this.state.bookAction === "edit") {
         this.editBooks()
         this.setState({ bookClicked: "" })
