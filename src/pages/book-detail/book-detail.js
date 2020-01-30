@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 import "./book-detail.css"
 
 class BookDetail extends Component {
@@ -23,7 +24,7 @@ class BookDetail extends Component {
     if (this.state.book.author === undefined) {
       authName = ""
     } else {
-      authName = <h3>{this.state.book.author.name}</h3>
+      authName = this.state.book.author.name
     }
 
     return (
@@ -37,15 +38,12 @@ class BookDetail extends Component {
                 savedTitle={this.state.book.title}
                 savedUrl={this.state.book.coverImgURL}
                 savedAuthor={this.state.book.author ? this.state.book.author.name : ""}
-              // savedBook={authName} => {Object Object}
-              // savedBook={this.state.book} => Cannot use {Object Object}
-              //savedBook={this.state.book.title} => works
               >Save</button>
             </div>
           </section>
           <section className="bookdetail">
             <h2>{this.state.book.title}</h2>
-            {authName}
+            <Link to={`/author/${authName}`} className="bookdetailauthor"> <h3>{authName} </h3></Link>
             <p>{this.state.book.description}</p>
           </section>
         </article>

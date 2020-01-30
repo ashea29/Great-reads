@@ -147,7 +147,7 @@ class App extends Component {
     }
     this.setState({ savedBookId })
     console.log(newBook)
-    localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
+    // localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
   }
   render() {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
@@ -161,7 +161,7 @@ class App extends Component {
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} bookIdSaveHandle={e => this.bookIdSaveHandle(e)} />} />
-          <Route exact path="/saved" render={(props) => <Saved {...props} bookIdHandle={e => this.bookIdHandle(e)} />} />
+          <Route exact path="/saved" render={(props) => <Saved {...props} bookIdHandle={e => this.bookIdHandle(e)} book />} savedBookId={this.state.savedBookId} />
         </Switch>
       </div>
     );

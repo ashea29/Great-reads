@@ -40,6 +40,19 @@
   text-align: right;
   position: relative;
 }
+.bookdetailauthor{
+  color: black;
+  font-style: 2vmin;
+  text-decoration: none;
+}
+.bookdetailauthor h3{
+  color: black;
+  font-style: 2vmin;
+  text-decoration: none;
+}
+.bookdetailauthor h3:hover{
+  color: green;
+}
 .bookidsave{
   position: absolute;
   bottom: -8vh;
