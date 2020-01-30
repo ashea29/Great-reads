@@ -1,15 +1,17 @@
 .bookdisplay{
-margin: 15vh 5vw;
-text-align: center;
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
+  margin: 15vh 5vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .eachbookholder{
-position: relative;
-width: 23vmin;
-margin: 6vmin 2.5vmin;
-padding:0;
+  position: relative;
+  width: 23vmin;
+  margin: 6vmin 2.5vmin;
+  padding:3%;
+  border: black solid .1em;
+  background-color: #becabf;
 }
 .bookdetaillinksection{
   position: absolute;
