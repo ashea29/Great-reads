@@ -18,7 +18,6 @@ class Saved extends Component {
     const newFetchId = this.state.savedBook.concat()
     const removedIndex = e.target.attributes.getNamedItem('index').value
     newFetchId.splice(removedIndex, 1)
-    console.log("new ", newFetchId)
     localStorage.setItem('savedBookId', JSON.stringify(newFetchId))
     this.setState({ savedBook: newFetchId })
   }
@@ -48,7 +47,7 @@ class Saved extends Component {
             </div>
           )}
         </div>
-      </div>
+      </div >
     )
     // } else {
     //   return (
