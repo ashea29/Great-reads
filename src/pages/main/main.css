@@ -1,5 +1,5 @@
 .bookdisplay{
-  margin: 5vh 5vw 10vh 5vw;
+  margin: 2vh 5vw 10vh 5vw;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -14,11 +14,20 @@
   background-color:  rgba(207, 221, 207, 0.384);
 }
 .search{
-  margin-top: 15vh;
+  margin-top: 18vh;
   height: 5vmin;
   width: 50vw;
   border: 1px solid black;
   font-size: 3vmin;
+  text-align: center;
+}
+.search::placeholder{
+  text-align: center;
+  color: lightgray;
+}
+.searchtext{
+  font-size: 2vmin;
+  color: gray;
 }
 .bookdetaillinksection{
   position: absolute;
