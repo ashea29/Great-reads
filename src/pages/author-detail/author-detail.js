@@ -24,6 +24,7 @@ class AuthorDetail extends Component{
 
 
   render(){
+    console.log(this.state.books)
     if(this.state.books.length !== 0){
 
     return(

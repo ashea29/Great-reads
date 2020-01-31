@@ -9,9 +9,10 @@ import AuthorDetail from './author-detail.js'
 describe('AuthorDetail Component', () => {
     let wrapper;
     beforeEach(() => {
-      wrapper = shallow(<AuthorDetail />)
+      wrapper = shallow(<AuthorDetail match= {{params:{name:"test"}}}/>)
     })
-    it('Should contain class name details', () => {
-     expect(wrapper.find('div').at(1).hasClass('name')).toEqual(true)
+    it('Should contain class name name', () => {
+      wrapper.setState({ books: []})
+      expect(wrapper.find('div').at(1).hasClass('name')).toEqual(true)
     })
   })
