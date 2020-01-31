@@ -24,7 +24,6 @@ class AuthorDetail extends Component{
 
 
   render(){
-    console.log(this.props.match.params.name)
     if(this.state.books.length !== 0){
 
     return(
