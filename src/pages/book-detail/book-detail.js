@@ -28,7 +28,7 @@ class BookDetail extends Component {
     }
 
     return (
-      <div>
+      <div book={this.state.props}>
         <article className="bookdetailholder">
           <section className="bookdetailimageholder">
             <div className="bookdetailimage" style={{ backgroundImage: `url(${this.state.book.coverImgURL})` }} >
