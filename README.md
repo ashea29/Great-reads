@@ -1,5 +1,6 @@
 # Project Overview
 
+Great-Reads
 
 ## Project Description
 
@@ -32,6 +33,8 @@ The application has been deployed to Netlify and Heroku
     - View all authors
     - Add new author
 - Testing
+-Fetch data from the backend repo
+
 
 
 
@@ -49,17 +52,19 @@ The application has been deployed to Netlify and Heroku
 
 ## Components
 
-| Component | Description |
-| --- | --- |
-| App | This will make the initial data pull, include React Router, state |
-| Header | Header including the nav & top image |
-| Main | This will render the main page of books |
-| BookForm | Form for creating/editing a book |
-| Book-detail | View of single book details |
-| Author | View of all authors |
-| AuthorForm | Form for creating an author |
-| Author-detail | View of single author details |
-| Saved | View all favorited books |
+
+| Component | Description | 
+| --- | :---: |  
+| App | This will make the initial data pull, update data, edit data, delete data, state, and routes| 
+| Header | This will render the header include the nav & logo | 
+| Main | This will render the main section with all the books| 
+| Book-Detail | This will render specific book details for an individual book | 
+| Book Form | This will render a form to add/edit book | 
+| Author | This will render all of the authors | 
+| Author-Detail | This will render the details for a specific author | 
+| AuthorForm | This will render a form to add an Author | 
+| Saved | This will render all the saved books| 
+
 
 
 ## Code Snippets
@@ -156,3 +161,4 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
