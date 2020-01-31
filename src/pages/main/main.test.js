@@ -14,6 +14,9 @@ describe('Header Component', () => {
   it('Has a class name book display', () => {
     expect(wrapper.find('div').at(0).hasClass('bookdisplay')).toEqual(true)
   })
+  it('has a class name bookdetaillinksection', () => {
+    expect(wrapper.find('section').at(1).hasClass('bookdetaillinksection')).toEqual(true)
+  })
   it('should have a length equal to the book props passed in', () => {
     expect(wrapper.find('.eachbookholder').length).toEqual(books.length)
   })
