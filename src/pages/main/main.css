@@ -1,5 +1,5 @@
 .bookdisplay{
-  margin: 15vh 5vw;
+  margin: 5vh 5vw 10vh 5vw;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -12,6 +12,13 @@
   padding:3%;
   border: black solid .1em;
   background-color:  rgba(207, 221, 207, 0.384);
+}
+.search{
+  margin-top: 15vh;
+  height: 5vmin;
+  width: 50vw;
+  border: 1px solid black;
+  font-size: 3vmin;
 }
 .bookdetaillinksection{
   position: absolute;
