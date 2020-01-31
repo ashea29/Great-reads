@@ -29,6 +29,8 @@ class App extends Component {
   }
   componentDidMount() {
     this.getBooks()
+    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
+    this.setState({ savedBookId: fetchId })
   }
   getBooks() {
     fetch("https://great-reads-seir1118.herokuapp.com/")
@@ -160,10 +162,10 @@ class App extends Component {
     localStorage.setItem('savedBookId', JSON.stringify(newFetchId))
     this.setState({ savedBookId: newFetchId })
   }
-  homeFetchingStorage = () => {
-    const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
-    this.setState({ savedBookId: fetchId })
-  }
+  // homeFetchingStorage = () => {
+  //   const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
+  //   this.setState({ savedBookId: fetchId })
+  // }
   render() {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
     const { search, books } = this.state
@@ -172,7 +174,7 @@ class App extends Component {
       <div className="App">
         <p className={urlreminder ? "urlreminder" : "none"}>{urlreminder}</p>
         <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
-        <Header bookCreateHandle={this.bookCreateHandle} homeFetchingStorage={() => this.homeFetchingStorage()} />
+        <Header bookCreateHandle={this.bookCreateHandle} />
         <Switch>
           <Route exact path="/" render={(props) => <Main {...props} search={this.state.search} searchHandle={e => this.searchHandle(e)} books={searchedBooks} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />

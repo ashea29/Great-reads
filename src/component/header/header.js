@@ -6,7 +6,7 @@ export const Header = (props) => {
   return (
     <div className='header'>
       <Link to='/' className="logolink"
-        onClick={() => props.homeFetchingStorage()}
+      // onClick={() => props.homeFetchingStorage()}
       >
         <h1><span className="one">Gr</span><span className="two">ea</span><span className="one">t</span>
           <span className="two">R</span><span className="one">ea</span><span className="two">ds</span>
