@@ -153,6 +153,13 @@ class App extends Component {
     this.setState({ savedBookId })
     localStorage.setItem('savedBookId', JSON.stringify(savedBookId))
   }
+  removeHandle = (e) => {
+    const newFetchId = this.state.savedBookId.concat()
+    const removedIndex = e.target.attributes.getNamedItem('index').value
+    newFetchId.splice(removedIndex, 1)
+    localStorage.setItem('savedBookId', JSON.stringify(newFetchId))
+    this.setState({ savedBookId: newFetchId })
+  }
   homeFetchingStorage = () => {
     const fetchId = JSON.parse(localStorage.getItem('savedBookId')) || []
     this.setState({ savedBookId: fetchId })
@@ -171,7 +178,7 @@ class App extends Component {
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} bookIdSaveHandle={e => this.bookIdSaveHandle(e)} />} />
-          <Route exact path="/saved" render={(props) => <Saved {...props} bookIdHandle={e => this.bookIdHandle(e)} book />} savedBookId={this.state.savedBookId} />
+          <Route exact path="/saved" render={(props) => <Saved {...props} savedBookId={this.state.savedBookId} removeHandle={e => this.removeHandle(e)} bookIdHandle={e => this.bookIdHandle(e)} book />} savedBookId={this.state.savedBookId} />
         </Switch>
       </div>
     );
