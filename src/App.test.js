@@ -13,7 +13,7 @@ describe("App component:", () => {
   it('has a App class', () => {
     expect(component.hasClass('App')).toEqual(true)
   })
-  it("has more than 3 routes", () => {
+  it("has 4 or more routes", () => {
     expect(component.find(Route).length).toBeGreaterThanOrEqual(4)
   })
 })

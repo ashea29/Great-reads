@@ -1,0 +1,20 @@
+[
+  {
+    "title": "a",
+    "author": {
+      "_id": "55",
+      "name": "m"
+    },
+    "coverImgURL": "c",
+    "detail": "d"
+  },
+  {
+    "title": "[[",
+    "author": {
+      "_id": "11",
+      "name": "ll"
+    },
+    "coverImgURL": "yy",
+    "detail": "zz"
+  }
+]

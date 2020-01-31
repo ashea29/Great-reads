@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const Main = (props) => {
   return (
-    <div className="bookdisplay">
+    <div className="bookdisplay" books={props.books}>
       {props.books.map(eachBook =>
         <div key={eachBook._id} className="eachbookholder"  >
           <section id={eachBook._id} onClick={(e) => props.bookIdHandle(e)} style={{ backgroundImage: `url(${eachBook.coverImgURL})` }} className="eachbookimage">
