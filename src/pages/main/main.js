@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 const Main = (props) => {
   return (
     <div>
-      <input className="search" onChange={e => props.searchHandle(e)} />
+      <input className="search" onChange={e => props.searchHandle(e)} placeholder="Type the book's name" />
+      <p className="searchtext">Search your book(s)</p>
       <div className="bookdisplay" books={props.books}>
         {props.books.map(eachBook =>
           <div key={eachBook._id} className="eachbookholder"  >
