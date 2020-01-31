@@ -23,7 +23,8 @@ class App extends Component {
       bookUrl: "",
       bookDetail: "",
 
-      savedBookId: []
+      savedBookId: [],
+      search: ""
     }
   }
   componentDidMount() {
@@ -34,7 +35,9 @@ class App extends Component {
       .then(res => res.json())
       .then(res => this.setState({ books: res }))
   }
-
+  searchHandle = (e) => {
+    this.setState({ search: e.target.value })
+  }
   bookCreateHandle = () => {
     this.setState({ bookAction: "create" })
   }
@@ -156,13 +159,15 @@ class App extends Component {
   }
   render() {
     const urlreminder = this.state.bookUrl === "omg!!!Don't" ? "Please type a valid image Url" : ""
+    const { search, books } = this.state
+    const searchedBooks = books.filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
     return (
       <div className="App">
         <p className={urlreminder ? "urlreminder" : "none"}>{urlreminder}</p>
         <BookForm bookTitle={this.bookTitle} bookAction={this.state.bookAction} inputHandle={this.inputHandle} bookSubmitHandle={this.bookSubmitHandle} escHandle={this.escHandle} />
         <Header bookCreateHandle={this.bookCreateHandle} homeFetchingStorage={() => this.homeFetchingStorage()} />
         <Switch>
-          <Route exact path="/" render={(props) => <Main {...props} books={this.state.books} bookIdHandle={(e) => this.bookIdHandle(e)} delete />} />
+          <Route exact path="/" render={(props) => <Main {...props} search={this.state.search} searchHandle={e => this.searchHandle(e)} books={searchedBooks} bookIdHandle={(e) => this.bookIdHandle(e)} />} />
           <Route exact path="/author" render={(props) => <Authors {...props} author={this.state.authors} />} />
           <Route path="/author/:name" render={(props) => <AuthorDetail {...props} author={this.state.authors} authorCreateHandler={this.authorCreateHandle} />} />
           <Route path="/book/:id" render={(props) => <BookDetail {...props} id={this.state.bookClicked} bookIdSaveHandle={e => this.bookIdSaveHandle(e)} />} />

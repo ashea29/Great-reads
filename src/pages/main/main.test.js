@@ -12,7 +12,7 @@ describe('Header Component', () => {
     wrapper = shallow(<Main books={books} />)
   })
   it('Has a class name book display', () => {
-    expect(wrapper.find('div').at(0).hasClass('bookdisplay')).toEqual(true)
+    expect(wrapper.find('div').at(1).hasClass('bookdisplay')).toEqual(true)
   })
   it('has a class name bookdetaillinksection', () => {
     expect(wrapper.find('section').at(1).hasClass('bookdetaillinksection')).toEqual(true)
